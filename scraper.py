@@ -12,7 +12,7 @@ soup1 = BeautifulSoup(page_response.content, "html.parser")
 textContent = []
 output = []
 
-table = soup1.find('table', class_='sortable')
+table = soup1.find('table')
 fields = ["title", "fasc", "pubdate", "first_ID", "collect_ID", "J_ID", "F_ID"]
 # print(fields[:6])
 
