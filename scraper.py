@@ -37,10 +37,10 @@ for tr in table.find_all('tr'):
                 poem_version = poem.find('p').text.strip()
                 poem_list.append(poem_version)
 
-            data["Poems"] = poem_list
+            data["poems"] = poem_list
 
         else:
-            data["Poems"] = None
+            data["poems"] = None
 
         output.append(data)
         print(data)
@@ -48,5 +48,5 @@ for tr in table.find_all('tr'):
 # print(output)
 
 # You can access a list of dicts (one dict per row entry) with "output"
-# The field names are: "title", "fasc", "pubdate", "first_ID", "collect_ID", "J_ID", "F_ID", "Poems"
-# "Poems" is a list of poem versions given by Wikipedia
+# The field names are: "title", "fasc", "pubdate", "first_ID", "collect_ID", "J_ID", "F_ID", "poems"
+# "poems" is a list of poem versions given by Wikipedia
