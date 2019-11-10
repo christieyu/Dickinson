@@ -2,6 +2,7 @@
 
 from bs4 import BeautifulSoup
 import requests
+from pymongo import MongoClient
 # boilerplate from https://codeburst.io/web-scraping-101-with-python-beautiful-soup-bb617be1f486
 
 
@@ -14,7 +15,12 @@ output = []
 
 table = soup1.find('table')
 fields = ["title", "fasc", "pubdate", "first_ID", "collect_ID", "J_ID", "F_ID"]
-# print(fields[:6])
+
+# Connect to Database (must include username, password, authSource parameters) as shown in example
+# Example: client = MongoClient("mongodb+srv://scarlettexperiment-1pxrx.mongodb.net/test", username=<username>, password=<password>, authSource="admin")
+client = MongoClient("mongodb+srv://scarlettexperiment-1pxrx.mongodb.net/test")
+db = client['DickinsonDB']
+collection = db['DickinsonCOLL']
 
 for tr in table.find_all('tr'):
     tds = tr.find_all('td')
@@ -26,7 +32,7 @@ for tr in table.find_all('tr'):
         ahref = tr.find('a')
         if ahref != None:
             poem_link = ahref['href']
-            poem_response = requests.get(poem_link, timeout=5)
+            poem_response = requests.get(poem_link)
             soup2 = BeautifulSoup(poem_response.content, "html.parser")
 
             poemdivs = soup2.find_all('div', {'class':'poem'})
@@ -43,9 +49,9 @@ for tr in table.find_all('tr'):
             data["poems"] = None
 
         output.append(data)
-        print(data)
+        collection.insert(data)
 
-# print(output)
+# output = [{'first_ID': u'1.127', 'pubdate': u'1945', 'title': u'A Bee his burnished Carriage', 'collect_ID': u'', 'poems': [u'A Bee his burnished Carriage\nDrove boldly to a Rose \u2014\nCombinedly alighting \u2014\nHimself \u2014 his Carriage was \u2014\nThe Rose received his visit\nWith frank tranquillity\nWithholding not a Crescent\nTo his Cupidity \u2014\nTheir Moment consummated \u2014\nRemained for him \u2014 to flee \u2014\nRemained for her \u2014 of rapture\nBut the humility.'], 'fasc': u'S13.01.002', 'J_ID': u'1339'}]
 
 # You can access a list of dicts (one dict per row entry) with "output"
 # The field names are: "title", "fasc", "pubdate", "first_ID", "collect_ID", "J_ID", "F_ID", "poems"
