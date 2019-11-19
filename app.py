@@ -18,12 +18,20 @@ def home(filename = "HelloWorld.vue"):
 @app.route("/poems")
 def poems():
 	client = app.config["CLIENT"]
-	print(client)
+	# print(client)
 	db = client.DickinsonDB
 	col = db.DickinsonCOLL
 	poems = []
 	for entry in col.find():
 		entry.pop('_id')
+		if entry["poems"]:
+			formatted_poems = []
+			for p in entry["poems"]:
+				formatted_poems.append(p.split("\n"))
+			entry["poems"] = formatted_poems
 		poems.append(entry)
-	print(poems)
+		# print(entry["poems"])
+		# formatted_poems =
+		# entry["poems"]
+	# print(poems)
 	return jsonify(poems)
