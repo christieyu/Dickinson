@@ -12,13 +12,20 @@ Our project requires packages such as _______.
 We named our project after a line in Emily Dickinson's poem, *Split the Lark — and you'll find the Music —*
 
 >Split the Lark — and you'll find the Music —
+>
 >Bulb after Bulb, in Silver rolled —
+>
 >Scantilly dealt to the Summer Morning
+>
 >Saved for your Ear when Lutes be old.
-
+>
+>
 >Loose the Flood — you shall find it patent —
+>
 >Gush after Gush, reserved for you —
+>
 >**Scarlet Experiment!** Sceptic Thomas!
+>
 >Now, do you doubt that your Bird was true?
 
 As you can see, what Dickinson (somewhat derogatorily) refers to as a "Scarlet Experiment!" is an unnecessarily intrusive analysis of her poetry — exactly our project's exercise. The aim of our project was to analyse several versions of 1799 Emily Dickinson poems, from her bound fascicles, unbound sets, and miscellaneous pieces.
