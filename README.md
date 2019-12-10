@@ -21,9 +21,7 @@ We named our project after a line in Emily Dickinson's poem, *Split the Lark —
 >Loose the Flood — you shall find it patent —\
 >Gush after Gush, reserved for you —\
 >**Scarlet Experiment!** Sceptic Thomas!\
->Now, do you doubt that your Bird was true?\
->\
->*[Source](https://en.wikisource.org/wiki/Split_the_Lark_%E2%80%94_and_you%27ll_find_the_Music_%E2%80%94)*
+>Now, do you doubt that your Bird was true? *[Source](https://en.wikisource.org/wiki/Split_the_Lark_%E2%80%94_and_you%27ll_find_the_Music_%E2%80%94)*
 
 As you can see, what Dickinson (somewhat derogatorily) refers to as a "Scarlet Experiment!" is an unnecessarily intrusive analysis of her poetry — exactly our project's exercise. The aim of our project was to analyse several versions of 1799 Emily Dickinson poems, from her bound fascicles, unbound sets, and miscellaneous pieces.
 
