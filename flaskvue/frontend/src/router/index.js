@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
-// import Poems from '@/components/Poems'
 
 const routerOptions = [
   { path: '/', component: 'HelloWorld' },
-  { path: '/poems', component: 'Poems' }
+  { path: '/poems', component: 'Poems' },
+  { path: '/about', component: 'About' },
+  { path: '/macros', component: 'Macros' },
 ]
 const routes = routerOptions.map(route => {
   return {

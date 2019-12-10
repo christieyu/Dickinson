@@ -1,113 +1,72 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div id="app">
+    <h1 id="master_title">THE <br> 
+      <div id="master_title_scarlet">SCARLET</div> 
+      EXPERIMENT
+    </h1>
+
+    <blockquote class="blockquote text-right">
+      <p class="mb-0">
+        Split the lark and you'll find the music, <br>
+        Bulb after bulb, in silver rolled, <br>
+        Scantily dealt to the summer morning, <br>
+        Saved for your ear when lutes be old. <br>
+        <br>
+        Loose the flood, you shall find it patent, <br>
+        Gush after gush, reserved for you; <br>
+        Scarlet experiment! sceptic Thomas, <br>
+        Now, do you doubt that your bird was true?
+      </p>
+      <footer class="blockquote-footer"> <cite title="Source Title">Emily Dickinson</cite></footer>
+    </blockquote>
+
+    <!-- <img src="http://localhost:8080/static/assets/emily.png"> -->
+    <!-- <img src="../static/image/emily.png"> -->
+    <!-- <img src="../assets/emily.png"> -->
+    <!-- <img :src=""></img> -->
+    <!-- <img :src="imageURL" style="padding-left: 18px;"></img> -->
+    <!-- <img :src="imageURL"> -->
+<!--     <div class="left" :style="{backgroundImage: `url(${require(`../assets/emily.png`)})`}">
+    </div>
+ -->
+<!--  <img :src="myimage"> -->
+   <!-- <img v-bind:src="myImage" style="padding-left: 18px;"></img> -->
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  // src: require('../assets/logo.png')
   data () {
     return {
+      // imageURL: require("emily.png"),
+      // myImage: require('./assets/emily.png'),
       msg: 'This is the Emily Dickinson Collective!'
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
+
+<style>
+#master_title {
+  font-size: 100px;
+  position: absolute;
+  bottom: 0px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+#master_title_scarlet {
+  font-size: 100px;
+  color: #ff0321;
+  position: absolute;
+  bottom: 60px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+#lark_poem {
+  padding-left: 20px;
 }
 </style>
+
+<!-- CSS libraries -->
+<style src="./bootstrap.css"></style>
+
+
