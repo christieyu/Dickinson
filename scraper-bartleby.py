@@ -1,4 +1,5 @@
-# Christie Yu, Oct 31 2019
+# Christie Yu, Dec 10, 2019
+# Scrapes poems from https://www.bartleby.com/113/indexlines.html
 
 from bs4 import BeautifulSoup
 import requests
@@ -12,14 +13,14 @@ db = client.DickinsonDB
 col = db.DickinsonCOLL
 
 # Issue the serverStatus command and print the results
-serverStatusResult=db.command("serverStatus")
-pprint(serverStatusResult)
+# serverStatusResult=db.command("serverStatus")
+# pprint(serverStatusResult)
 
 page_link = 'https://www.bartleby.com/113/indexlines.html'
 page_response = requests.get(page_link, timeout=5)
 soup1 = BeautifulSoup(page_response.content, "html.parser")
 
-textContent = []
+# textContent = []
 output = []
 
 table = soup1.find_all('table')[6]
@@ -27,9 +28,11 @@ table = soup1.find_all('table')[6]
 
 for tr in table.find_all('tr'):
     links = tr.find_all('a')
-    data = {}
+
     for poem in links:
-        data["title"] = poem.text.strip()
+        data = {}
+        data["title"] = poem.text.strip().lower()
+        # print(data["title"])
 
         poem_link = "https://www.bartleby.com" + poem['href']
         poem_response = requests.get(poem_link, timeout=5)
@@ -49,8 +52,10 @@ for tr in table.find_all('tr'):
         my_poem = my_poem.join(current_poem)
 
         data["text"] = my_poem
-        # print(data)
 
-        output.append(data)
+        # output.append(data)
+
+        col.update_one({'lowertitle': data["title"]}, {'$push': {'poems': data["text"]}})
+        # print(len(output))
 
 # # The field names are: "title" and "text"; both are strings
