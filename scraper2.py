@@ -4,52 +4,53 @@ from bs4 import BeautifulSoup
 import requests
 # boilerplate from https://codeburst.io/web-scraping-101-with-python-beautiful-soup-bb617be1f486
 
+from pymongo import MongoClient
+from pprint import pprint
+
+client = MongoClient("mongodb+srv://scarlettexperiment-1pxrx.mongodb.net/test", username="xiuchen", password="helloworld", authSource="admin")
+db = client.DickinsonDB
+col = db.DickinsonCOLL
+
+# Issue the serverStatus command and print the results
+serverStatusResult=db.command("serverStatus")
+pprint(serverStatusResult)
 
 page_link = 'https://www.bartleby.com/113/indexlines.html'
 page_response = requests.get(page_link, timeout=5)
 soup1 = BeautifulSoup(page_response.content, "html.parser")
 
-print(soup1)
-
 textContent = []
 output = []
 
-# table = soup1.find_all('table')[2]
-# fields = ["title", "text"]
+table = soup1.find_all('table')[6]
 # print(table)
 
-# for tr in table.find_all('tr'):
-#     tds = tr.find_all('td')
-#     if len(tds) == 7:
-#         data = {}
-#         for i in range(6):
-#             data[fields[i]] = tds[i].text.strip()
+for tr in table.find_all('tr'):
+    links = tr.find_all('a')
+    data = {}
+    for poem in links:
+        data["title"] = poem.text.strip()
 
-#         ahref = tr.find('a')
-#         if ahref != None:
-#             poem_link = ahref['href']
-#             poem_response = requests.get(poem_link, timeout=5)
-#             soup2 = BeautifulSoup(poem_response.content, "html.parser")
+        poem_link = "https://www.bartleby.com" + poem['href']
+        poem_response = requests.get(poem_link, timeout=5)
+        soup2 = BeautifulSoup(poem_response.content, "html.parser")
 
-#             poemdivs = soup2.find_all('div', {'class':'poem'})
+        poem_table = soup2.find_all('table')[7]
+        poem_trs = poem_table.find_all('tr')
 
-#             poem_list = []
+        current_poem = []
+        for poem_tr in poem_trs:
+            poem_line = poem_tr.text.strip()
+            poem_line = poem_line.strip("0 1 2 3 4 5 6 7 8 9")
+            poem_line = poem_line.strip()
+            current_poem.append(poem_line)
 
-#             for poem in poemdivs:
-#                 poem_version = poem.find('p').text.strip()
-#                 poem_list.append(poem_version)
+        my_poem = "\n"
+        my_poem = my_poem.join(current_poem)
 
-#             data["poems"] = poem_list
+        data["text"] = my_poem
+        # print(data)
 
-#         else:
-#             data["poems"] = None
+        output.append(data)
 
-#         output.append(data)
-#         print(data)
-
-
-# print(output)
-
-# # You can access a list of dicts (one dict per row entry) with "output"
-# # The field names are: "title", "fasc", "pubdate", "first_ID", "collect_ID", "J_ID", "F_ID", "poems"
-# # "poems" is a list of poem versions given by Wikipedia
+# # The field names are: "title" and "text"; both are strings
