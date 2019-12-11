@@ -50,7 +50,7 @@ export default {
   font-size: 100px;
   position: absolute;
   bottom: 0px;
-  color: #fff3f3;
+  color: #ffffff;
 }
 #master_title_scarlet {
   font-size: 100px;

@@ -42,9 +42,19 @@
         <p class="card-text">
           <h6>{{ details_title }}</h6>
             <div class="custom-control custom-switch">
-              <input style="font-size: 15px" type="checkbox" class="custom-control-input" id="customSwitch1" @click="getPoemAlliterations()">
+              <input style="font-size: 15px" type="checkbox" class="custom-control-input" id="customSwitch1" @click="toggle_alliterations()">
               <label class="custom-control-label" for="customSwitch1">Show Alliterations</label>
             </div>
+            <ul class="list-group" v-if="show_alliterations == true">
+              <br>
+              <li class="list-group-item d-flex justify-content-between align-items-center" v-for="i in details_alliterations.length">
+                <div v-for="j in details_alliterations[i-1].length">
+                  {{ details_alliterations[i-1][j-1] }}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+              </li>
+            </ul>
             <br>
             <div class="custom-control custom-switch">
               <input style="font-size: 15px" type="checkbox" class="custom-control-input" id="customSwitch2" @click="toggle_similies()">
@@ -124,7 +134,7 @@ export default {
     details_scanscion: [],
     details_alliterations: '',
     details_similies: [],
-    toggle_alliterations: false,
+    show_alliterations: false,
     show_similies: false,
     show_scanscion: false,
     sentiment_analysis: '', 
@@ -166,20 +176,39 @@ export default {
               alliteration_words.push(this.poem_alliterations[i]["alliterations"][j][k])
             }
           }
-          this.details_alliterations = alliteration_words;
-          // console.log("here", this.details_alliterations)
+        console.log("before filtering: ", alliteration_words)
+        let alliteration_words_filtered = []
+        for (let a = 0; a < alliteration_words.length; a++) {
+          console.log(alliteration_words[a])
+          if (alliteration_words[a] == "—" || alliteration_words[a] == "," ) {
+            a = a + 1;
+          } else {
+            alliteration_words_filtered.push(alliteration_words[a])
+          }
+        }
+        let alliteration_words_pairs = []
+        let new_pair = []
+        for (let a = 0; a < alliteration_words_filtered.length; a++) {
+          if (a % 2 != 0) {
+            new_pair.push(alliteration_words_filtered[a])
+            alliteration_words_pairs.push(new_pair)
+            new_pair = []
+          } else {
+            new_pair.push(alliteration_words_filtered[a])
+          }
+        }
+          this.details_alliterations = alliteration_words_pairs;
+          console.log("ALLITERATIONS", this.details_alliterations)
         }
       }
       for (let i = 0; i < this.poem_similies.length; i++) {
         if (this.details_objectID == this.poem_similies[i].poem_id) {
           this.details_similies = this.poem_similies[i]["similies"];
-          console.log(this.details_similies)
         }
       }
       for (let i = 0; i < this.poem_readibility.length; i++) {
         // console.log(this.poem_readibility[i].poem_id)
         if (this.details_objectID == this.poem_readibility[i].poem_id) {
-          console.log("FOUND A MATCH FOR POEM READIBILITY")
           this.details_readability = this.poem_readibility[i];
         }
       }
@@ -189,6 +218,10 @@ export default {
     },
     toggle_scanscion: function() {
       this.show_scanscion = !this.show_scanscion;
+    },
+    toggle_alliterations: function() {
+      console.log(this.details_alliterations)
+      this.show_alliterations = !this.show_alliterations;
     }
   },
   async beforeMount() {
