@@ -4,10 +4,12 @@ Hello!
 ### User instructions
 
 1. Clone this Github repo onto your own computer.
-2. Once inside the Dickinson folder, open two Terminal windows. In the first, run `flask run`. In the second, `cd` into `flaskvue`, then `frontend`, and run `npm install` to install all packages needed to run our project. Then run `npm run dev`. Do not ctl-C or quit either Terminal window. 
+2. Once inside the Dickinson folder, open two Terminal windows. In the first, run `flask run`. In the second, `cd` into `flaskvue`, then `frontend`, and run `npm install` to install all packages needed to run our project. Then run `npm run dev`. Do not ctrl-C or quit either Terminal window. 
 3. Go to the localhost address indicated in the **first** terminal window (likely /5000, NOT /8080!) to see our website. Feel free to explore the "Poems", "Macros", and "About Us" tabs to learn more! 
 
-If you'd like to experiment with our NLP analysis, you can view those files as `commonwords.py` (which includes our common words analysis, alliteration, and similes. Or you can go into the `Poetry-Tools-Master` repo (forked from [Poetry-Tools](https://github.com/hyperreality/Poetry-Tools) and look at `prosodic-analysis.py`, where we worked with rhyme scheme, meter, scansion, and stanzas. You can read more about how we performed these analyses on our About Me page, but the sources we used are [this Poetry-Analysis repo](https://github.com/HalleyYoung/Poetry_Analysis/), [NLTK](https://www.nltk.org/), [Sci-Kit Learn](https://scikit-learn.org/stable/), [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/) and the poetrytools package. We do not suggest actually running this code without modifying it for your own purposes first, as it's connected to our database and may result in alteration or duplication of data. 
+If you'd like to experiment with our NLP analysis, you can view those files as `commonwords.py` (which includes our common words analysis, alliteration, and similes) and `prosodic-analysis.py` (where we worked with rhyme scheme, meter, scansion, and stanzas) in the `Poetry-Tools-Master` repo (forked from [Poetry-Tools](https://github.com/hyperreality/Poetry-Tools)). You can read more about how we performed these analyses on our About Me page, but in short the packages we used are [this Poetry-Analysis repo](https://github.com/HalleyYoung/Poetry_Analysis/), [NLTK](https://www.nltk.org/), [Sci-Kit Learn](https://scikit-learn.org/stable/), [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/) and the poetrytools package mentioned earlier. We ask that you do not run this code without modifying it for your own purposes first, as it is connected to our MongoDB database and may result in alteration or duplication of data. 
+
+If you'd like to see our code for web-scraping using [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), you can view those files as `scraper-wiki.py` for data from Wikipedia and `scraper-bartleby.py` for data from Bartleby.
 
 ---
 
@@ -40,7 +42,7 @@ Versions of her poetry in this project were scraped from:
 * [Bartleby](https://www.bartleby.com/113/indexlines.html)
 * [*Emily Dickinson’s Poems: As She Preserved Them*, edited by Cristanne Miller](https://www.amazon.com/Emily-Dickinsons-Poems-Preserved-Them/dp/0674737962/ref=pd_sbs_14_img_0/144-2972906-9739845?_encoding=UTF8&pd_rd_i=0674737962&pd_rd_r=82dab485-497b-4e70-930b-7e44522eef82&pd_rd_w=XXvON&pd_rd_wg=GCJnu&pf_rd_p=5cfcfe89-300f-47d2-b1ad-a4e27203a02a&pf_rd_r=K6M04AVBFXTV4VN6KCD2&psc=1&refRID=K6M04AVBFXTV4VN6KCD2)
 
-With this digitalization, we hope that our project provides the ability to compare versions of Dickinson's texts en masse, using natural language processing protocols. We also dedicated focus to analysing her poetry as an aggregate, noticing normal and deviating sentiments, lengths and other characterizing metadata of her poems. With this baseline literary digestion in play, hopefully we can provide a foundational computational outlook on her poetry analysis.
+With this digitalization, we hope that our project provides the ability to compare versions of Dickinson's texts en masse, using natural language processing protocols. We also dedicated focus to analysing her poetry as an aggregate, noticing normal and deviating sentiments, lengths and other characterizing metadata of her poems. In creating this baseline literary digestion we hope we can provide a foundational computational outlook on her poetry analysis.
 
 ---
 
