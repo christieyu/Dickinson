@@ -41,7 +41,7 @@
       <div class="card-body">
         <p class="card-text">
           <h6>{{ details_title }}</h6>
-            <div class="custom-control custom-switch">
+          <!--   <div class="custom-control custom-switch">
               <input style="font-size: 15px" type="checkbox" class="custom-control-input" id="customSwitch1" @click="toggle_alliterations()">
               <label class="custom-control-label" for="customSwitch1">Show Alliterations</label>
             </div>
@@ -55,7 +55,7 @@
               <li class="list-group-item d-flex justify-content-between align-items-center">
               </li>
             </ul>
-            <br>
+            <br> -->
             <div class="custom-control custom-switch">
               <input style="font-size: 15px" type="checkbox" class="custom-control-input" id="customSwitch2" @click="toggle_similies()">
               <label class="custom-control-label" for="customSwitch2">Show Similies</label>
@@ -107,6 +107,21 @@
           <li class="list-group-item d-flex justify-content-between align-items-center">
           </li>
         </ul>
+        <br>
+          <div class="custom-control custom-switch">
+              <input style="font-size: 15px" type="checkbox" class="custom-control-input" id="customSwitch1" @click="toggle_alliterations()">
+              <label class="custom-control-label" for="customSwitch1">Show Alliterations</label>
+            </div>
+            <ul class="list-group" v-if="show_alliterations == true">
+              <br>
+              <li class="list-group-item d-flex justify-content-between align-items-center" v-for="i in details_alliterations.length">
+                <div v-for="j in details_alliterations[i-1].length">
+                  {{ details_alliterations[i-1][j-1] }}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+              </li>
+            </ul>
       </div>
     </div>
   </div>

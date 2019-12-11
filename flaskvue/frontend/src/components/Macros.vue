@@ -13,44 +13,34 @@
     </div>
       <!-- GRAPHS: SENTIMENTS -->
       <div class="card mb-3" style="display:inline-block; width: 400px;">
-        <h3 class="card-header"">Sentiment Analysis #1</h3>
+        <h3 class="card-header"">Analysis #1</h3>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+          <h5 class="card-title">Readability</h5>
+          <h6 class="card-subtitle text-muted">By Year and Fascicle</h6>
         </div>
-        <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <img style="height: 250px; width: 100%; display: block;" v-bind:src="'/static/img/readability_graph.jpeg'" alt="Card image">
+        <div class="card-body" style="font-size: 15px">
+          This graph displays the readability of Emily Dickinson's poems, organized by year and fascicle.
+          The Coleman-Liau index was used to determine the readability of a poem ("Coleman–Liau index is a readability test designed to gauge the understandability of a text as an approximation the U.S. grade level thought necessary to comprehend the text.") The formula is:  CLI=0.0588{L}-0.296{S}-15.8. <br><br> As displayed on the graph and according the Coleman index, Emily Dickinson's poems are readable by young audiences.<br>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio<br><br><br><br><br><br><br><br></li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
         <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+          <a href="#" class="card-link"></a>
+          <a href="#" class="card-link"></a>
         </div>
       </div>
 
       <div class="card mb-3" style="display:inline-block; width: 400px; margin-left:25px;">
-        <h3 class="card-header"">Sentiment Analysis #2</h3>
+        <h3 class="card-header"">Analysis #2</h3>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+          <h5 class="card-title">Sentiment</h5>
+          <h6 class="card-subtitle text-muted">By Year and Fascicle</h6>
         </div>
-        <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
+        <img style="height: 250px; width: 100%; display: block;" v-bind:src="'/static/img/sentiment_graph.jpeg'" alt="Card image">
+        <div class="card-body" style="font-size: 15px">
+          <p class="card-text">This graph displays the sentiment of Emily Dickinson's poems across the years and fascicles.  Note that the year is recorded by the first publication of the poem, and some of these poems were published after her death. The fascicles are denoted with an F in the y-axis markers. Set information, which starts with an S is also included as well. Overall, the sentiments of her poems appear to be higher on the negative scale.<br><br><br><br></p>
         <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio<br><br><br><br><br><br><br><br></li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+          <a href="#" class="card-link"></a>
+          <a href="#" class="card-link"></a>
         </div>
       </div>
       </div>
