@@ -21,7 +21,7 @@
         <img style="height: 250px; width: 100%; display: block;" v-bind:src="'/static/img/readability_graph.jpeg'" alt="Card image">
         <div class="card-body" style="font-size: 15px">
           This graph displays the readability of Emily Dickinson's poems, organized by year and fascicle.
-          The Coleman-Liau index was used to determine the readability of a poem (The Coleman–Liau index is a readability test designed to gauge the understandability of a text as an approximation the U.S. grade level thought necessary to comprehend the text. The formula is:  CLI=0.0588{L}-0.296{S}-15.8, where L is the average letters and S is the average sentences per 100 words.)<br><br> As displayed on the graph and according the Coleman index, Emily Dickinson's poems are readable by young audiences.<br>
+          The Coleman-Liau index was used to determine the readability of a poem (The Coleman–Liau index is a readability test designed to gauge the understandability of a text as an approximation the U.S. grade level thought necessary to comprehend the text. The formula is:  CLI=0.0588{L}-0.296{S}-15.8.)<br><br> As displayed on the graph and according the Coleman index, Emily Dickinson's poems are readable by young audiences.<br>
         </div>
         <div class="card-body">
           <a href="#" class="card-link"></a>
