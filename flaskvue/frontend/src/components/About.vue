@@ -18,7 +18,7 @@
         <h4 class="card-title">Data Scraping</h4>
         <p class="card-text">TO-DO: Christie</p>
         <h4 class="card-title">Meta-Analysis</h4>
-        <p class="card-text">TO-DO: Greta and Yoyo</p>
+        <p class="card-text">We have performed linguistic analysis across several axes. Using the <a href="https://github.com/hyperreality/Poetry-Tools">poetrytools</a> NLP package, we analyzed each poem’s rhyme scheme, estimated meter, scansion, and stanza lengths. These are computed guesses, not definitive. Additionally we computed a “readability” score that can serve as a proxy for how complex— mostly in terms of sentence structure— each poem is. Finally, we used <a href="https://www.nltk.org/">NLTK</a> and <a href="https://scikit-learn.org/stable/">SciKit-Learn</a> to analyze each poem and identify similes and alliterations (borrowing from Halley Young’s <a href="https://github.com/HalleyYoung/Poetry_Analysis">Poetry Analysis repo</a>), and we used the <a href="https://stanfordnlp.github.io/CoreNLP/">Stanford CoreNLP</a> package for computing a “sentiment” guess of how positive or negative each poem is. <br><br> On a higher level, we also pulled out the 100 most common “unique” words, and provided a sentiment analysis of these poems as well. We graphed this meta-analysis data and it’s visible under the “Macros” tab. </p>
       </div>
     </div>
      <div class="card border-danger mb-3" id="card-three" style="max-width: 23rem;">
