@@ -65,8 +65,15 @@
             <span class="badge badge-primary badge-pill badge-warning">{{ details_analysis["stanza_lengths"] }}</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            Readibility
+            Sentiment*
+            <span class="badge badge-primary badge-pill badge-info">{{ sentiment_analysis }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Readability
             <span class="badge badge-primary badge-pill badge-dark">2</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            *on a scale from 0-4, with 4 the most positive
           </li>
         </ul>
       </div>
@@ -95,6 +102,8 @@ export default {
     details_similies: [],
     toggle_alliterations: false,
     show_similies: false,
+    sentiment_analysis: '', 
+    poem_sentiment: '',
 	}),
   methods: {
     getPoemDetails: function(title) {
@@ -116,6 +125,11 @@ export default {
         if (this.details_objectID == this.poem_analysis[i].poem_id) {
           this.details_analysis = this.poem_analysis[i];
           // console.log(this.details_analysis)
+        }
+      }
+      for (let i = 0; i < this.poem_sentiment.length; i++) {
+        if (this.details_title == this.poem_sentiment[i].title) {
+          this.sentiment_analysis = this.poem_sentiment[i].sentiment;
         }
       }
       for (let i = 0; i < this.poem_alliterations.length; i++) {
@@ -152,6 +166,11 @@ export default {
     data = await response.json();
     this.poem_analysis = data;
     // console.log(this.poem_analysis)
+
+    let poemSentiment = new URL("http://127.0.0.1:5000/sentiment");
+    response = await fetch(poemSentiment);
+    data = await response.json();
+    this.poem_sentiment = data;
 
     let poemAlliterations = new URL("http://127.0.0.1:5000/alliterations");
     response = await fetch(poemAlliterations);
