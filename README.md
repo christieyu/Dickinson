@@ -5,7 +5,7 @@ Hello!
 
 1. Clone this Github repo onto your own computer.
 2. Once inside the Dickinson folder, open two Terminal windows.
-3. In the first, run `pip install flask_pymongo` to download the package necessary to connect to our database, and then run `flask run`.
+3. In the first, run `pip install flask_pymongo` to download the package necessary to connect to our database, and then run `flask run`. This should be all you need, but on the off chance you are missing something like `pip` or `npm` on your computer, install it as needed. 
 4. In the second, `cd` into `flaskvue`, then `frontend`, and run `npm install` to install all packages needed to run our frontend. Then run `npm run dev`. Do not ctrl-C or quit either Terminal window. 
 5. Go to the localhost address indicated in the **first** terminal window (likely /5000, NOT /8080!) to see our website. Feel free to explore the "Poems", "Macros", and "About Us" tabs to learn more! 
 
