@@ -16,8 +16,8 @@
         <li class="nav-item" id="myTabs" v-if="details_length == 0">
           <a class="nav-link active" id="nav_bar_tab" data-toggle="tab" href="#home"><b>Version {{1}}</b></a>
         </li>
-        <li class="nav-item" id="myTabs" v-for="i in details_length">
-          <a class="nav-link active" data-toggle="tab" v-bind:href="i">Version {{i}}</a>
+        <li class="nav-item" id="myTabs">
+          <a class="nav-link active" data-toggle="tab" v-if="details_length != 0">Version 1</a>
         </li>
       </ul>
       <div id="myTabContent" class="tab-content">
@@ -25,13 +25,13 @@
             <p>Select a poem on the left panel.</p>
         </div>
         <div v-else>
-          <div v-for="k in details.length">
-            {{k}}
-            <div class="tab-pane active show" v-for="j in details[k-1].length" v-bind:id="k">
-              <p v-if="details_similies.includes(details[k-1][j-1]) && show_similies" style="color: #c33c75"><b>{{details[k-1][j-1]}}</b></p>
-              <p v-else><b>{{details[k-1][j-1]}}</b></p>
+          <!-- <div v-for="k in details.length">
+            {{k}} -->
+            <div class="tab-pane active show" v-for="j in details[0].length" v-bind:id="k">
+              <p v-if="details_similies.includes(details[0][j-1]) && show_similies" style="color: #c33c75"><b>{{details[0][j-1]}}</b></p>
+              <p v-else><b>{{details[0][j-1]}}</b></p>
             </div>
-          </div>
+          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -66,7 +66,26 @@
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             Readibility
-            <span class="badge badge-primary badge-pill badge-dark">2</span>
+            <span class="badge badge-primary badge-pill badge-dark">{{ details_readability["coleman"] }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Words
+            <span class="badge badge-primary badge-pill badge-info">{{ details_readability["words"] }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Sentences
+            <span class="badge badge-primary badge-pill badge-success">{{ details_readability["sentences"] }}</span>
+          </li>
+        </ul>
+        <br>
+        <ul class="list-group">
+          <div class="custom-control custom-switch">
+              <input style="font-size: 15px" type="checkbox" class="custom-control-input" id="customSwitch3" @click="toggle_scanscion()">
+              <label class="custom-control-label" for="customSwitch3">Show Scanscion</label>
+          </div>
+          <br>
+          <li class="list-group-item" v-if="show_scanscion == true">
+            <div v-for="line in details_scanscion"> {{line}}</div>
           </li>
         </ul>
       </div>
@@ -84,6 +103,7 @@ export default {
   data: () => ({
 	  poems: '',
     poem_analysis: '',
+    poem_readibility: '',
     poem_alliterations: '',
     poem_similies: '',
     details_objectID: 0,
@@ -91,10 +111,13 @@ export default {
     details: '[]',
     details_title: '',
     details_analysis: '',
+    details_readability: '',
+    details_scanscion: [],
     details_alliterations: '',
     details_similies: [],
     toggle_alliterations: false,
     show_similies: false,
+    show_scanscion: false,
 	}),
   methods: {
     getPoemDetails: function(title) {
@@ -115,6 +138,7 @@ export default {
       for (let i = 0; i < this.poem_analysis.length; i++) {
         if (this.details_objectID == this.poem_analysis[i].poem_id) {
           this.details_analysis = this.poem_analysis[i];
+          this.details_scanscion = this.poem_analysis[i]["scanscion"];
           // console.log(this.details_analysis)
         }
       }
@@ -136,10 +160,20 @@ export default {
           console.log(this.details_similies)
         }
       }
+      for (let i = 0; i < this.poem_readibility.length; i++) {
+        // console.log(this.poem_readibility[i].poem_id)
+        if (this.details_objectID == this.poem_readibility[i].poem_id) {
+          console.log("FOUND A MATCH FOR POEM READIBILITY")
+          this.details_readability = this.poem_readibility[i];
+        }
+      }
     },
     toggle_similies: function() {
       this.show_similies = !this.show_similies;
     },
+    toggle_scanscion: function() {
+      this.show_scanscion = !this.show_scanscion;
+    }
   },
   async beforeMount() {
   	let poemUrl = new URL("http://127.0.0.1:5000/poems");
@@ -164,6 +198,12 @@ export default {
     data = await response.json();
     this.poem_similies = data;
     console.log("ALL SIMILIES", this.poem_similies)
+
+    let poemReadability = new URL("http://127.0.0.1:5000/readability");
+    response = await fetch(poemReadability);
+    data = await response.json();
+    this.poem_readibility = data;
+    console.log("ALL READIBILITY", this.poem_readibility)
   },
 }
 </script>
@@ -188,7 +228,7 @@ export default {
 /*  border: 1px solid;*/
 /*  border-color: #edeef4;*/
   width: 400px;
-  height: 500px;
+  height: 645px;
 /*  background-color: #f4f5f8;*/
   overflow: auto;
 }
@@ -198,7 +238,7 @@ export default {
   /*border: 1px solid;*/
   /*border-color: #edeef4;*/
   width: 400px;
-  height: 515px;
+  height: 658px;
   background-color: #ffffff;
   overflow: auto;
 }
@@ -208,7 +248,7 @@ export default {
   border: 1px solid;
   border-color: #edeef4;
   width: 400px;
-  height: 500px;
+  height: 645px;
   background-color: #f4f5f8;
   overflow: auto;
 }

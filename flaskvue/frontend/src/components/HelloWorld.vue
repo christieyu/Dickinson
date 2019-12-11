@@ -1,11 +1,12 @@
 <template>
   <div id="app">
+    <img id="emily_img" style="width: 100%;" v-bind:src="'/static/img/emily3.jpg'">
     <h1 id="master_title">THE <br> 
       <div id="master_title_scarlet">SCARLET</div> 
       EXPERIMENT
     </h1>
-    <blockquote class="blockquote text-right">
-      <p class="dickinson_poem">
+    <blockquote class="blockquote text-right" id="block_quote">
+      <p class="dickinson_poem" style="color:#ffffff"><b>
         Split the lark and you'll find the music, <br>
         Bulb after bulb, in silver rolled, <br>
         Scantily dealt to the summer morning, <br>
@@ -15,10 +16,9 @@
         Gush after gush, reserved for you; <br>
         Scarlet experiment! sceptic Thomas, <br>
         Now, do you doubt that your bird was true?
-      </p>
+      </b></p>
 
-      <footer class="blockquote-footer"> <cite title="Source Title">Emily Dickinson</cite></footer>
-      <img id="emily_img" v-bind:src="'/static/img/dickinson.png'">
+      <footer class="blockquote-footer" style="color:#ffffff"> <cite title="Source Title">Emily Dickinson</cite></footer>
     </blockquote>
   </div>
 </template>
@@ -43,15 +43,14 @@ export default {
   margin-right: 20px;
 }
 #emily_img {
-  margin-top: 20px;
-  margin-right: 20px;
-  height: 500px;
+  height: 720px;
   width: 350px;
 }
 #master_title {
   font-size: 100px;
   position: absolute;
   bottom: 0px;
+  color: #fff3f3;
 }
 #master_title_scarlet {
   font-size: 100px;
@@ -59,8 +58,10 @@ export default {
   position: absolute;
   bottom: 60px;
 }
-#lark_poem {
-  padding-left: 20px;
+#block_quote {
+  position: absolute;
+  top: 90px;
+  right: 16px;
 }
 </style>
 
