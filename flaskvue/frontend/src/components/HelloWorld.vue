@@ -6,7 +6,7 @@
     </h1>
 
     <blockquote class="blockquote text-right">
-      <p class="mb-0">
+      <p class="dickinson_poem">
         Split the lark and you'll find the music, <br>
         Bulb after bulb, in silver rolled, <br>
         Scantily dealt to the summer morning, <br>
@@ -17,7 +17,9 @@
         Scarlet experiment! sceptic Thomas, <br>
         Now, do you doubt that your bird was true?
       </p>
+
       <footer class="blockquote-footer"> <cite title="Source Title">Emily Dickinson</cite></footer>
+      <img id="emily_img" v-bind:src="'/static/img/dickinson.png'">
     </blockquote>
 
     <!-- <img src="http://localhost:8080/static/assets/emily.png"> -->
@@ -50,6 +52,15 @@ export default {
 
 
 <style>
+#dickinson_poem {
+  margin-right: 20px;
+}
+#emily_img {
+  margin-top: 20px;
+  margin-right: 20px;
+  height: 500px;
+  width: 350px;
+}
 #master_title {
   font-size: 100px;
   position: absolute;
