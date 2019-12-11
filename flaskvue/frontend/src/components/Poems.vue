@@ -14,10 +14,10 @@
     <div id="versions">
       <ul class="nav nav-tabs">
         <li class="nav-item" id="myTabs" v-if="details_length == 0">
-          <a class="nav-link active" id="nav_bar_tab" data-toggle="tab" href="#home">Version {{1}}</a>
+          <a class="nav-link active" id="nav_bar_tab" data-toggle="tab" href="#home"><b>Version {{1}}</b></a>
         </li>
         <li class="nav-item" id="myTabs" v-for="i in details_length">
-          <a class="nav-link active" data-toggle="tab" href="#home">Version {{i}}</a>
+          <a class="nav-link active" data-toggle="tab" v-bind:href="i">Version {{i}}</a>
         </li>
       </ul>
       <div id="myTabContent" class="tab-content">
@@ -25,19 +25,12 @@
             <p>Select a poem on the left panel.</p>
         </div>
         <div v-else>
-          <div class="tab-pane active show" v-for="j in details[0].length" id="home">
-     <!--        {{details_similies.includes(details[0][j-1])}} -->
-            <p v-if="details_similies.includes(details[0][j-1]) && show_similies" style="color: #c33c75"><b>{{details[0][j-1]}}</b></p>
-            <p v-else><b>{{details[0][j-1]}}</b></p>
-          <!--   <div v-for="k in details[0][j-1].length">
-              {{ details[0][j][k] }}
-            </div> -->
-              <!-- <p v-for="k in details[0][j-1].length">
-                <p v-if="word in details_alliteration" style="font-color: #c33c75";>{{ word }}</p>
-                <p v-else>{{ word }}</p>
-                {{details[0][j][k]}}
-              </p>
-              <p><b>{{details[0][j-1]}}</b></p> -->
+          <div v-for="k in details.length">
+            {{k}}
+            <div class="tab-pane active show" v-for="j in details[k-1].length" v-bind:id="k">
+              <p v-if="details_similies.includes(details[k-1][j-1]) && show_similies" style="color: #c33c75"><b>{{details[k-1][j-1]}}</b></p>
+              <p v-else><b>{{details[k-1][j-1]}}</b></p>
+            </div>
           </div>
         </div>
       </div>
@@ -109,6 +102,7 @@ export default {
         if (this.poems[i]['title'] === title) {
           this.details_title = title;
           this.details = this.poems[i].poems;
+          console.log("poem details:", this.details)
           this.details_objectID = this.poems[i].objectID;
           if (this.poems[i].poems == null) {
             this.details_length = 0;
@@ -232,7 +226,7 @@ export default {
   display: inline-block;
 }
 #myTabs {
-  font-size: 20px;
+  font-size: 25px;
 }
 #myTabContent {
   display: inline-block;

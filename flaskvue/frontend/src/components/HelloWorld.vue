@@ -4,7 +4,6 @@
       <div id="master_title_scarlet">SCARLET</div> 
       EXPERIMENT
     </h1>
-
     <blockquote class="blockquote text-right">
       <p class="dickinson_poem">
         Split the lark and you'll find the music, <br>
@@ -21,18 +20,6 @@
       <footer class="blockquote-footer"> <cite title="Source Title">Emily Dickinson</cite></footer>
       <img id="emily_img" v-bind:src="'/static/img/dickinson.png'">
     </blockquote>
-
-    <!-- <img src="http://localhost:8080/static/assets/emily.png"> -->
-    <!-- <img src="../static/image/emily.png"> -->
-    <!-- <img src="../assets/emily.png"> -->
-    <!-- <img :src=""></img> -->
-    <!-- <img :src="imageURL" style="padding-left: 18px;"></img> -->
-    <!-- <img :src="imageURL"> -->
-<!--     <div class="left" :style="{backgroundImage: `url(${require(`../assets/emily.png`)})`}">
-    </div>
- -->
-<!--  <img :src="myimage"> -->
-   <!-- <img v-bind:src="myImage" style="padding-left: 18px;"></img> -->
   </div>
 </template>
 
