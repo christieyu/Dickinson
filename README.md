@@ -13,6 +13,8 @@ If you'd like to experiment with our NLP analysis, you can view those files as `
 
 If you'd like to see our code for web-scraping using [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), you can view those files as `scraper-wiki.py` for data from Wikipedia and `scraper-bartleby.py` for data from Bartleby.
 
+If you'd like to run the Stanford NLP Analysis, [this](https://stackoverflow.com/questions/32879532/stanford-nlp-for-python) stack overflow for setup on local machine is particularly helpful. Much of the data calculations for Sentiment and Readability is run through flask run in the terminal. An example index.html is provided as well. Although this step is not required, if future web integration for calculating this data is required, then this system may provide helpful. 
+
 ---
 
 ### About the project
