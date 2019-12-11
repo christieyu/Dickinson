@@ -3,9 +3,11 @@ Hello!
 
 ### User instructions
 
-You can find our project at: ______.
+1. Clone this Github repo onto your own computer.
+2. Once inside the Dickinson folder, open two Terminal windows. In the first, run `flask run`. In the second, `cd` into `flaskvue`, then `frontend`, and run `npm install` to install all packages needed to run our project. Then run `npm run dev`. Do not ctl-C or quit either Terminal window. 
+3. Go to the localhost address indicated in the **first** terminal window (likely /5000, NOT /8080!) to see our website. Feel free to explore the "Poems", "Macros", and "About Us" tabs to learn more! 
 
-Should you like to clone or download our project, you will need to download packages including: PyMongo.
+If you'd like to experiment with our NLP analysis, you can view those files as `commonwords.py` (which includes our common words analysis, alliteration, and similes. Or you can go into the `Poetry-Tools-Master` repo (forked from [Poetry-Tools](https://github.com/hyperreality/Poetry-Tools) and look at `prosodic-analysis.py`, where we worked with rhyme scheme, meter, scansion, and stanzas. You can read more about how we performed these analyses on our About Me page, but the sources we used are [this Poetry-Analysis repo](https://github.com/HalleyYoung/Poetry_Analysis/), [NLTK](https://www.nltk.org/), [Sci-Kit Learn](https://scikit-learn.org/stable/), [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/) and the poetrytools package. We do not suggest actually running this code without modifying it for your own purposes first, as it's connected to our database and may result in alteration or duplication of data. 
 
 ---
 
