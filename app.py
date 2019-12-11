@@ -80,6 +80,19 @@ def readability():
 	return jsonify(readability)
 
 
+@app.route("/sentiment")
+def sentiment():
+	client = app.config["CLIENT"]
+	db = client.SentimentDB
+	col = db.DickinsonSentCOLL
+	analysis = []
+	for entry in col.find():
+		analysis.append({"title": entry["Title"], 
+						"sentiment": entry["Sentimental Value"],
+						})
+	return jsonify(analysis)
+
+
 @app.route("/alliterations")
 def alliterations():
 	client = app.config["CLIENT"]

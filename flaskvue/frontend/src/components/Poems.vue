@@ -76,16 +76,25 @@
             Sentences
             <span class="badge badge-primary badge-pill badge-success">{{ details_readability["sentences"] }}</span>
           </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Sentiment*
+            <span class="badge badge-primary badge-pill badge-danger">{{ sentiment_analysis }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size:10px">
+            *on a scale from 0-4, with 4 the most positive
+          </li>
         </ul>
         <br>
-        <ul class="list-group">
-          <div class="custom-control custom-switch">
-              <input style="font-size: 15px" type="checkbox" class="custom-control-input" id="customSwitch3" @click="toggle_scanscion()">
-              <label class="custom-control-label" for="customSwitch3">Show Scanscion</label>
-          </div>
+        <div class="custom-control custom-switch">
+            <input style="font-size: 15px" type="checkbox" class="custom-control-input" id="customSwitch3" @click="toggle_scanscion()">
+            <label class="custom-control-label" for="customSwitch3">Show Scanscion</label>
+        </div>
+        <ul class="list-group" v-if="show_scanscion == true">
           <br>
-          <li class="list-group-item" v-if="show_scanscion == true">
+          <li class="list-group-item"">
             <div v-for="line in details_scanscion"> {{line}}</div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
           </li>
         </ul>
       </div>
@@ -118,6 +127,8 @@ export default {
     toggle_alliterations: false,
     show_similies: false,
     show_scanscion: false,
+    sentiment_analysis: '', 
+    poem_sentiment: '',
 	}),
   methods: {
     getPoemDetails: function(title) {
@@ -140,6 +151,11 @@ export default {
           this.details_analysis = this.poem_analysis[i];
           this.details_scanscion = this.poem_analysis[i]["scanscion"];
           // console.log(this.details_analysis)
+        }
+      }
+      for (let i = 0; i < this.poem_sentiment.length; i++) {
+        if (this.details_title == this.poem_sentiment[i].title) {
+          this.sentiment_analysis = this.poem_sentiment[i].sentiment;
         }
       }
       for (let i = 0; i < this.poem_alliterations.length; i++) {
@@ -186,6 +202,11 @@ export default {
     data = await response.json();
     this.poem_analysis = data;
     // console.log(this.poem_analysis)
+
+    let poemSentiment = new URL("http://127.0.0.1:5000/sentiment");
+    response = await fetch(poemSentiment);
+    data = await response.json();
+    this.poem_sentiment = data;
 
     let poemAlliterations = new URL("http://127.0.0.1:5000/alliterations");
     response = await fetch(poemAlliterations);
