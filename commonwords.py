@@ -7,7 +7,6 @@ from nltk.corpus import stopwords
 import string
 from collections import defaultdict, OrderedDict
 import operator
-import word as wd
 
 '''
 This program accesses all poems from database and performs linguistic analysis on them, 
