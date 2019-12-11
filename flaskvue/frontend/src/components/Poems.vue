@@ -75,7 +75,7 @@
             <span class="badge badge-primary badge-pill badge-warning">{{ details_analysis["stanza_lengths"] }}</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            Readibility
+            Readability
             <span class="badge badge-primary badge-pill badge-dark">{{ details_readability["coleman"] }}</span>
           </li>
           <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -103,8 +103,8 @@
           <br>
           <li class="list-group-item"">
             <div v-for="line in details_scanscion"> {{line}}</div>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <br>
+            <div style="font-size: 10px;">*0 = short mark, 1 = long mark</div>
           </li>
         </ul>
         <br>
