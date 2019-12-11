@@ -42,7 +42,7 @@ Versions of her poetry in this project were scraped from:
 * [Bartleby](https://www.bartleby.com/113/indexlines.html)
 * [*Emily Dickinson’s Poems: As She Preserved Them*, edited by Cristanne Miller](https://www.amazon.com/Emily-Dickinsons-Poems-Preserved-Them/dp/0674737962/ref=pd_sbs_14_img_0/144-2972906-9739845?_encoding=UTF8&pd_rd_i=0674737962&pd_rd_r=82dab485-497b-4e70-930b-7e44522eef82&pd_rd_w=XXvON&pd_rd_wg=GCJnu&pf_rd_p=5cfcfe89-300f-47d2-b1ad-a4e27203a02a&pf_rd_r=K6M04AVBFXTV4VN6KCD2&psc=1&refRID=K6M04AVBFXTV4VN6KCD2)
 
-With this digitalization, we hope that our project provides the ability to compare versions of Dickinson's texts en masse, using natural language processing protocols. We also dedicated focus to analysing her poetry as an aggregate, noticing normal and deviating sentiments, lengths and other characterizing metadata of her poems. With this baseline literary digestion in play, hopefully we can provide a foundational computational outlook on her poetry analysis.
+With this digitalization, we hope that our project provides the ability to compare versions of Dickinson's texts en masse, using natural language processing protocols. We also dedicated focus to analysing her poetry as an aggregate, noticing normal and deviating sentiments, lengths and other characterizing metadata of her poems. In creating this baseline literary digestion we hope we can provide a foundational computational outlook on her poetry analysis.
 
 ---
 
